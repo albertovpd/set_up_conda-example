@@ -16,7 +16,17 @@ There are more efficient ways, but just running the script with the sudo apt-get
 
         bash linux_programs.sh 
 
-- If you do not want to install a concrete program, just **#** that line.
+The bash script includes:
+
+- chromium
+- krita # image editor
+- usb-creator-gtk # Startup Disk Creator
+- Spotify
+- Terminator # Terminal that can be divided in as many windows as you want.
+- Ubuntu-Tweaks         # (I like window buttons in the left)
+- code # visual studio code
+
+If you do not want to install a concrete program, just **#** that line. Also you can add all you want.
 
 
 # Python libraries and environments.

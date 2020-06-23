@@ -1,4 +1,5 @@
 sudo apt-get install chromium
+sudo apt install git-all
 sudo apt-get install krita
 sudo apt-get install usb-creator-gtk # Startup Disk Creator
 sudo apt-get install Spotify

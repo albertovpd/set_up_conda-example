@@ -2,13 +2,13 @@
 
 Once you have installed your Linux version, it is time to install all the programs you need, and Conda environment (in case you use it)... And this is terribly tiring and boring, so, instead of doing everything manually, just run bash scripts. 
 
-All senior workers know this, but talking with colleagues I realized it is not that common, so here I leave a basic example of installing your linux programs at once, creating a conda environment, copy a txt of your libraries and import it in a new environment, install just the libraries you want.
+All senior workers know this, but talking with colleagues I realized it is not that common, so here I leave a basic example of installing your linux programs at once, creating a conda environment, coping a .txt of your libraries and import it in a new environment or installing just the libraries you want.
 
 
 
-More or less what I need to start working: Installing **conda** *(miniconda)*, libraries, **jupyter-lab**, **pointing conda kernels to jupyter**, libraries for specific environments...
+More or less what I need to start working: Installing **Conda** *(Miniconda)*, libraries, **Jupyter-Labs**, **adding Conda environments to Jupyter-Labs**/Notebooks, libraries for specific environments...
 
-You can make a copy of your current environment in a *.txt* file and use it to create a new env, or you can write commands in a *.sh* file. I prefer the 2nd one because it feels cleaner, I am installing just what I am sure I need.
+You can make a copy of your current environment in a *.txt* file and use it to create a new env, or you can write commands in a *.sh* file. I prefer the 2nd one because it feels cleaner, I am installing just what I am sure I need (sometimes we install more than we need just testing libraries). Other way is using *conda list* or *pip freeze* to check all installed libraries and select the important ones.
 
 # Ubuntu programs.
 
@@ -16,20 +16,20 @@ There are more efficient ways, but just running the script with the sudo apt-get
 
         bash linux_programs.sh 
 
-- If you do not want to install a concrete program, just write **#** before the command.
+- If you do not want to install a concrete program, just **#** that line.
 
 
 # Python libraries and environments.
 
 - Install Miniconda => https://docs.conda.io/en/latest/miniconda.html
 
-- Download it and bash <namefile> in the downloader folder.
+- Download it and *bash NAMEFILE.sh* in the downloader folder.
 
 - Creating a Conda Environment and installing Python libraries:
 
         bash all_libraries.sh
 
-    - In *all_libraries.sh* is already written how to **create the environment**, install the wanted libraries and **use this Conda kernel on Jupyter Notebooks**. Check it out and **do not forget** to change the environment name, called in the script <ENVNAME>.
+    - In *all_libraries.sh* is already written how to **create the environment**, install the wanted libraries and **use this Conda environment on Jupyter Notebooks**. Check it out and **do not forget** to change the environment name in the script, called *ENVNAME*.
 
     - If you do not want a concrete library just **#** that line. 
 

@@ -38,16 +38,16 @@ If you do not want to install a concrete program, just **#** that line. Also you
 
 - Creating a Conda Environment and installing Python libraries:
 
-        bash all_libraries.sh
+        bash all_libraries.sh <ENV_NAME>
 
-    - In *all_libraries.sh* is already written how to **create the environment**, install the wanted libraries and **use this Conda environment on Jupyter Notebooks**. Check it out and **do not forget** to change the environment name in the script, called *ENVNAME*.
+    - *all_libraries.sh* already contains the commands how to **create the environment**, install the wanted libraries and **use this Conda environment on Jupyter Notebooks**. Check it out and **do not forget** to pass the name you want for your enviroment as the first positional.
 
     - If you do not want a concrete library just **#** that line. 
 
     - Never put sensitive information of your pc configurations/credentials in a repo.
 
 
-# Advise:
+# Advice:
 
 - It is considered *good development practices* to specify the Python version you want to install in the new environment, and also specifying the *main library* in the command line. Just check out the Conda documentation, it is very user-friendly.
 

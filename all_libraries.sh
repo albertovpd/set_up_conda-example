@@ -1,24 +1,23 @@
 
 #   CREATING ENV AND POINTING KERNEL TO JUPYTER LABS
 # --------------------------------
-# create environment: Modify <ENVNAME>
-conda create --name <ENVNAME>
-conda install -c anaconda ipykernel 
-python -m ipykernel install --user --name=<ENVNAME>
+# create environment: pass env name as first positional
+conda create --name $1 -y
+conda install --name $1 -c anaconda ipykernel -y
+python -m ipykernel install --user --name=$1
 # ipykernel is to point this kernel to the jupyter
 # --------------------------------
-
 
 #   LIBRARIES
 # --------------------------------
 
 # basics data science
-conda install -c conda-forge jupyterlab
-conda install -c anaconda pandas
-conda install -c conda-forge matplotlib
-conda install -c anaconda numpy
-conda install -c seaborn
-#conda install -c anaconda scikit-learn
-#conda install -c anaconda scipy
+conda install --name $1 -c conda-forge jupyterlab -y
+conda install --name $1 -c anaconda pandas -y
+conda install --name $1 -c conda-forge matplotlib -y
+conda install --name $1 -c anaconda numpy -y
+conda install --name $1 -c anaconda seaborn -y
+#conda install --name $1 -c anaconda scikit-learn
+#conda install --name $1 -c anaconda scipy
 
 # --------------------------------

@@ -3,9 +3,7 @@
 # --------------------------------
 # create environment: pass env name as first positional
 conda create --name $1 -y
-conda install --name $1 -c anaconda ipykernel -y
-python -m ipykernel install --user --name=$1
-# ipykernel is to point this kernel to the jupyter
+
 # --------------------------------
 
 #   LIBRARIES
@@ -21,3 +19,7 @@ conda install --name $1 -c anaconda seaborn -y
 #conda install --name $1 -c anaconda scipy
 
 # --------------------------------
+
+# ipykernel is to point this kernel to the jupyter
+conda install --name $1 -c anaconda ipykernel -y
+python -m ipykernel install --user --name=$1

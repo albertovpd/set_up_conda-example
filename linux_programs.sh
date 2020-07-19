@@ -3,6 +3,7 @@ sudo apt-get install krita
 sudo apt-get install usb-creator-gtk # Startup Disk Creator
 sudo snap install spotify
 sudo apt-get install terminator
+sudo apt-get install psensor 
 
 sudo add-apt-repository ppa:trebelnik-stefina/ubuntu-tweak
 sudo apt update

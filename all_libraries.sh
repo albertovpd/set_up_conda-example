@@ -10,7 +10,7 @@ conda create --name $1 -y
 # --------------------------------
 
 # basics data science
-conda install --name $1 -c conda-forge jupyterlab -y
+conda install -c conda-forge jupyterlab
 conda install --name $1 -c anaconda pandas -y
 conda install --name $1 -c conda-forge matplotlib -y
 conda install --name $1 -c anaconda numpy -y

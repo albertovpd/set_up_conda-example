@@ -89,6 +89,10 @@ Go to VSCode, then ctrl+P and copy the extensions:
 
         ext install GrapeCity.gc-excelviewer
 
+- Write math formulas in markdown
+
+        ext install goessner.mdmath
+
 All this is basic knowledge, nevertheless I realised not everybody know/do it, so maybe it can be helpful.
 
 

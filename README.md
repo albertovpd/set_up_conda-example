@@ -1,4 +1,4 @@
-# Install Miniconda in windows/linux.
+# Install Miniconda and wanted libraries in windows/linux.
 
 <details>
   <summary>Click to expand</summary>

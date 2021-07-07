@@ -1,4 +1,66 @@
+# Install Miniconda in windows/linux.
+
+<details>
+  <summary>Click to expand</summary>
+
+
+- Install Miniconda => https://docs.conda.io/en/latest/miniconda.html
+- Restart the PC.
+- If you're on Windows, after restarting, open the Anaconda Prompt and paste (for using basic Linux commands):
+
+                conda install m2-base
+
+Now, for Linux/Windows users:
+
+- Download this repository, go to that folder through conda terminal.
+- Take a glance to *all_libraries.sh* script. Write there all the libraries you want to use.
+- Think a name for your future Conda environment. Copy the code below and change *<ENV_NAME>* for your desired one.  
+
+                bash all_libraries.sh <ENV_NAME>
+                
+This will create a compartmentalized environment with the libraries written in *all_libraries.sh*. To use it, in the Conda promt, **conda activate** will initialize it.
+
+**Disclamier: ** Sometimes in Windows I have to re-run manually some of the libraries written in *all_libraries.sh*. If you don't find your environment in *jupyter-lab*, re-run the command.
+
+### Advice:
+
+<details>
+  <summary>Click to expand</summary>
+
+
+- It is considered *good development practices* to specify the Python version you want to install in the new environment, and also specifying the *main library* in the command line. Just check out the Conda documentation, it is very user-friendly.
+
+- Managing/creating new envs => https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+
+If you have an already working computer and you want to clone all your libraries from one pc to another, here is the solution (I am literally copypasting the Conda docs)
+
+- Saving libraries in a *.txt*. Activate your env and run:
+
+        conda list. # List all packages installed into the environment 'myenv'
+        
+        conda list -n myenv # Save packages for future use
+        
+        conda list --export > package-list.txt # Reinstall packages from an export file
+
+
+- Creating a new env with the .txt libraries:
+
+        conda create -n <ENVNAME> --file package-list.txt.
+
+-----------------------------------------------------------------
+
+</details>
+
+-----------------------------------------------------------------
+
+</details>
+
+---------------------------------------------------
+
 # Setting up your new brand Linux machine (and/or Conda Environment)
+
+<details>
+  <summary>Click to expand</summary>
 
 Once you have installed your Linux version, it is time to install all the programs you need, and Conda environment (in case you use it)... And this is terribly tiring and boring, so, instead of doing everything manually, just run bash scripts. 
 
@@ -30,46 +92,19 @@ The bash script includes:
 If you do not want to install a concrete program, just **#** that line. Also you can add all you want.
 
 
-# Python libraries and environments.
 
-- Install Miniconda => https://docs.conda.io/en/latest/miniconda.html
+<details>
+  <summary>Click to expand</summary>
 
-- Download it and *bash NAMEFILE.sh* in the downloader folder.
+-----------------------------------------------------------------
 
-- Creating a Conda Environment and installing Python libraries:
-
-        bash all_libraries.sh <ENV_NAME>
-
-    - *all_libraries.sh* already contains the commands how to **create the environment**, install the wanted libraries and **use this Conda environment on Jupyter Notebooks**. Check it out and **do not forget** to pass the name you want for your enviroment as the first positional.
-
-    - If you do not want a concrete library just **#** that line. 
-
-    - Never put sensitive information of your pc configurations/credentials in a repo.
-
-
-# Advice:
-
-- It is considered *good development practices* to specify the Python version you want to install in the new environment, and also specifying the *main library* in the command line. Just check out the Conda documentation, it is very user-friendly.
-
-- Managing/creating new envs => https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
-
-If you have an already working computer and you want to clone all your libraries from one pc to another, here is the solution (I am literally copypasting the Conda docs)
-
-- Saving libraries in a *.txt*. Activate your env and run:
-
-        conda list. # List all packages installed into the environment 'myenv'
-        
-        conda list -n myenv # Save packages for future use
-        
-        conda list --export > package-list.txt # Reinstall packages from an export file
-
-
-- Creating a new env with the .txt libraries:
-
-        conda create -n <ENVNAME> --file package-list.txt.
-
+</details>
 
 # Useful VSCode extensions:
+
+<details>
+  <summary>Click to expand</summary>
+
 
 Go to VSCode, then ctrl+P and copy the extensions:
 
@@ -95,13 +130,28 @@ Go to VSCode, then ctrl+P and copy the extensions:
 
 All this is basic knowledge, nevertheless I realised not everybody know/do it, so maybe it can be helpful.
 
+<details>
+  <summary>Click to expand</summary>
+
+-----------------------------------------------------------------
+
+</details>
 
 -------------------------------------
 
 -------------------------------------
+
+
+<details>
+  <summary>Click to expand</summary>
+
+
 
 ![alt](pics/woof-bark-bark-dog-graph.jpg)
 
+-----------------------------------------------------------------
+
+</details>
 
 -------------------------------------
 

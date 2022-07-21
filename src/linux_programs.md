@@ -1,3 +1,9 @@
+# Installing programs.
+
+It's quite deprecated already, nevertheless that's the simple idea: adding the commands to install the wanted programs.
+
+```
+
 sudo apt-get update
 
 sudo apt install chromium-browser
@@ -24,3 +30,4 @@ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt update
 sudo apt install code 
+```

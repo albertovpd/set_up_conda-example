@@ -1,146 +1,198 @@
-# Install Miniconda and wanted libraries in windows/linux.
+# Automating setups
 
+There are 2 scripts:
+- *linux_progams.sh* just executes the commands to install the programs.
+- *setup.sh* creates a conda environment with the wanted python version and libraries.
+
+---------------------------
+
+## Install Miniconda and wanted libraries in windows/linux.
 <details>
   <summary>Click to expand</summary>
 
+--------------------------------
 
-- Install Miniconda => https://docs.conda.io/en/latest/miniconda.html
-- Restart the PC.
-- If you're on Windows, after restarting, open the Anaconda Prompt and paste (for using basic Linux commands):
+**For windows:**
 
-                conda install m2-base
+This repository is meant to create your Conda virtual environment with the packages you need. If you have already everything installed to run Conda, VScode and WSL, just navigate to ths folder:
 
-Now, for Linux/Windows users:
+```
+bash setup.sh <name_for_the_environment> <python_version_like_3.8.2> 
+```
 
-- Download this repository, go to that folder through conda terminal.
-- Take a glance to *all_libraries.sh* script. Write there all the libraries you want to use.
-- Think a name for your future Conda environment. Copy the code below and change *<ENV_NAME>* for your desired one.  
+If not, configurations have to be made.
 
-                bash all_libraries.sh <ENV_NAME>
-                
-This will create a compartmentalized environment with the libraries written in *all_libraries.sh*. To use it, in the Conda promt, **conda activate** will initialize it.
+------------------------------------------
 
-**Disclamier: ** Sometimes in Windows I have to re-run manually some of the libraries written in *all_libraries.sh*. If you don't find your environment in *jupyter-lab*, re-run the command.
 
-### Advice:
-
+## WSL and VSCode
 <details>
   <summary>Click to expand</summary>
 
+- Linux terminal (ubuntu SO works great) => https://docs.microsoft.com/en-us/windows/wsl/install
 
-- It is considered *good development practices* to specify the Python version you want to install in the new environment, and also specifying the *main library* in the command line. Just check out the Conda documentation, it is very user-friendly.
+- run as administrator the powershell and write 
 
-- Managing/creating new envs => https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+```
+wsl –install
+```
 
-If you have an already working computer and you want to clone all your libraries from one pc to another, here is the solution (I am literally copypasting the Conda docs)
+TROUBLESHOOTING
+- Run as administrator
 
-- Saving libraries in a *.txt*. Activate your env and run:
+```
+wsl.exe --update
+wsl –shutdown (it forces reboot)
+```
 
-        conda list. # List all packages installed into the environment 'myenv'
-        
-        conda list -n myenv # Save packages for future use
-        
-        conda list --export > package-list.txt # Reinstall packages from an export file
+- Reboot the system
+- Once rebooted, the ubuntu shell will prompt asking for a new user and password. If not prompted => https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password
+
+- Download VSCode
+- configure Linux terminal to work with VSCode 
+  - https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode
+  - https://docs.microsoft.com/en-us/windows/wsl/setup/environment
 
 
-- Creating a new env with the .txt libraries:
+- Run the following commands in the powershell:
+```		
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
+```		
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
 
-        conda create -n <ENVNAME> --file package-list.txt.
-
------------------------------------------------------------------
 
 </details>
 
------------------------------------------------------------------
+--------------------------
+
+## Preparing Conda (virtual environment)
+
+<details>
+  <summary>Click to expand</summary>
+
+### Conda.
+
+```
+sudo apt-get update
+```
+
+If you can't run it, do the following:
+
+- Install this conda distribution
+
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh
+```
+
+Configure some .conda scripts:
+- Create wsl.conf
+			
+```
+Cd /etc
+Sudo touch wsl.conf
+Sudo nano wsl.conf
+```				
+- Write inside the following:
+			
+```      
+[network]
+generateResolvConf = false
+```
+
+- Create resolv.conf
+			
+```
+sudo nano /etc/resolv.conf
+```
+				
+- Overwrite the inside with
+
+```
+nameserver 8.8.8.8
+```
+				
+- *block* that file
+```
+sudo chattr -f +i /etc/resolv.conf
+```
+			
+- Restart wsl with ```wsl --shutdown```
+- Wait for a few seconds (15-30) as WSL takes some time to restart. Then, for running it again, just run: ```wsl```
+- Activate Conda
+
+```		
+Sudo apt-get update
+Conda activate
+```
+
+- Add the conda-forge source
+		
+```
+conda config --add channels conda-forge
+```
+
+
+### Clone the respository.
+
+**Disclaimer**: if you can't maybe is that you need writing permissions on that folder. That can be changed as follows:
+  - Navigate above the folder in which you want to clone the repo. In the terminal:
+
+```
+ls
+``` 
+
+(you should see the folder)
+
+```
+Chown –R <linux_user>:<linux_user data_folder/>
+```			
+	
+		
+</details>
+
+-------------------------------------
+
+
+
+-----------------------------------
+
+
 
 </details>
 
 ---------------------------------------------------
 
-# Setting up your new brand Linux machine (and/or Conda Environment)
+## Creating a Conda Environment with a wanted name.
 
-<details>
-  <summary>Click to expand</summary>
+For Linux, just install the lastest MiniConda version from the official website. For Windows, follow the required steps above. Once done:
 
-Once you have installed your Linux version, it is time to install all the programs you need, and Conda environment (in case you use it)... And this is terribly tiring and boring, so, instead of doing everything manually, just run bash scripts. 
+- Navigate to this folder and activate Conda base:
 
-All senior workers know this, but talking with colleagues I realized it is not that common, so here I leave a basic example of installing your linux programs at once, creating a conda environment, coping a .txt of your libraries and import it in a new environment or installing just the libraries you want.
+```
+conda activate
+bash setup.sh <name_for_the_environment> <python_version_like_3.8.2> 
+```
 
+- Follow the instructions
 
+### Configuring the installed libraries.
 
-More or less what I need to start working: Installing **Conda** *(Miniconda)*, libraries, **Jupyter-Labs**, **adding Conda environments to Jupyter-Labs**/Notebooks, libraries for specific environments...
+- Check available environments: ```conda env list```
+- Activate environment
 
-You can make a copy of your current environment in a *.txt* file and use it to create a new env, or you can write commands in a *.sh* file. I prefer the 2nd one because it feels cleaner, I am installing just what I am sure I need (sometimes we install more than we need just testing libraries). Other way is using *conda list* or *pip freeze* to check all installed libraries and select the important ones.
-
-# Ubuntu programs.
-
-There are more efficient ways, but just running the script with the sudo apt-get install commands you can get all programs installed at once. Go to the cloned folder and run:
-
-        bash linux_programs.sh 
-
-The bash script includes:
-
-- git
-- Terminator # Terminal that can be divided in as many windows as you want.
-- code # visual studio code
-- chromium
-- Spotify
-- krita # image editor
-- usb-creator-gtk # Startup Disk Creator
-- Ubuntu-Tweaks         # (I like window buttons in the left)
-
-If you do not want to install a concrete program, just **#** that line. Also you can add all you want.
+```
+conda activate <nameofyourenv>
+```
 
 
-
-<details>
-  <summary>Click to expand</summary>
-
------------------------------------------------------------------
-
-</details>
-
-# Useful VSCode extensions:
-
-<details>
-  <summary>Click to expand</summary>
-
-
-Go to VSCode, then ctrl+P and copy the extensions:
-
-- PDF reader
-
-        ext install tomoki1207.pdf
-
-- Grammar spelling
-
-        ext install streetsidesoftware.code-spell-checker
-
-- Colors for checking parenthesis (awesome)
-
-        ext install CoenraadS.bracket-pair-colorizer-2
-
-- Preview CSVs
-
-        ext install GrapeCity.gc-excelviewer
-
-- Write math formulas in markdown
-
-        ext install goessner.mdmath
-
-All this is basic knowledge, nevertheless I realised not everybody know/do it, so maybe it can be helpful.
-
-<details>
-  <summary>Click to expand</summary>
-
------------------------------------------------------------------
-
-</details>
 
 -------------------------------------
 
 -------------------------------------
 
+**About me:** 
 
 <details>
   <summary>Click to expand</summary>
